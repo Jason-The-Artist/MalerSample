@@ -397,10 +397,6 @@
               </div>
             </div>
           </div>
-          <div style="height: 30px"></div>
-          <div class="mobile-center-horizontal">
-            <UIButton title="Mehr über uns erfahren"/>
-          </div>
         </div>
       </div>
       <div class="center half-width">
