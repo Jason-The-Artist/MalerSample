@@ -38,7 +38,7 @@
   opacity: 0;
   transition: all 0.3s ease;
 }
-
+/*
 .card:hover .overlay{
   background: rgba(0, 0, 0, 0.3);
   opacity: 1;
@@ -47,13 +47,13 @@
 .card:hover{
   border-color: #6c98fb;
 }
-
+*/
 </style>
 
 <template>
 
   <div class="center-horizontal">
-    <div class="card shadow round-corner pointer" @click="onPath">
+    <div class="card shadow round-corner">
       <div class="center-horizontal max-width img-layout relative">
         <img :src="'../../src/assets/projects/' + img" class="max-width max-height product-img cover">
         <div class="max-width max-height overlay absolute product-img center">
