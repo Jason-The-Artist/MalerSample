@@ -154,6 +154,30 @@
   background: #1f2937;
 }
 
+.diagonal-line{
+  height: 180%;
+  width: 300px;
+  rotate: 20deg;
+  background: #eef4fc;
+  z-index: 100;
+  transform: translateX(150px);
+}
+
+.header-content-width{
+  width: 100%;
+  margin-left: 200px;
+}
+
+.main-video{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mobile-limit-height{
+  height: 100%;
+}
+
 @media (max-width: 1450px) {
   .product-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -186,6 +210,31 @@
 
   .mobile-column{
     flex-direction: column;
+  }
+
+  .diagonal-line{
+    display: none;
+  }
+
+  .header-content-width{
+    margin-left: 0;
+    margin-top: 100px;
+  }
+
+  .mobile-absolute{
+    position: absolute;
+  }
+
+  .mobile-limit-height{
+    height: 80%;
+  }
+
+  .main-video{
+    filter: brightness(0.5);
+  }
+
+  .mobile-white{
+    color: white;
   }
 
 }
@@ -236,58 +285,35 @@
 
   <Nav class="fade-bottom-before on-top" :class="fadeNav ? 'fade-bottom-after' : ''"/>
 
-  <div class="header-background header-outer center" id="home">
-    <div class="header-inner main-content-width space-between center-vertical mobile-column">
-      <div class="center half-width fade-before" :class="fadeHeader ? 'fade-after' : ''">
-        <div>
-          <div class="mobile-center-horizontal">
-            <div class="main-tag">Professionelle Malerarbeiten seit 1995</div>
-          </div>
-          <h1 class="reset-margin main-headline mobile-center-text">Ihr Zuhause in <span class="prim-color">neuen Farben</span></h1>
-          <p class="default-textsize decent-color fade-before mobile-center-text" :class="fadeSubHeader ? 'fade-after' : ''">Wir verwandeln Ihre Räume mit hochwertigen Malerarbeiten, modernen Techniken und jahrzehntelanger Erfahrung.</p>
-          <div class="mobile-center-horizontal fade-before mobile-button-column" :class="fadeSubButtons ? 'fade-after' : ''">
-            <div class="center-horizontal">
-              <UIButton title="Kostenlos beraten lassen" @click="onContact"/>
+  <div class="header-background overflow-hidden header-outer center" id="home">
+    <div class="mobile-limit-height max-width space-between relative center-vertical mobile-column">
+      <div class="relative mobile-absolute max-height center-vertical right half-width">
+        <div class="center-vertical mobile-absolute fade-before" :class="fadeHeader ? 'fade-after' : ''" style="z-index: 200">
+          <div class="header-content-width">
+            <div class="mobile-center-horizontal">
+              <div class="main-tag">Professionelle Malerarbeiten seit 1995</div>
             </div>
-            <div class="button-space"></div>
-            <div class="center-horizontal">
-              <UIButton title="Unsere Arbeiten ansehen" sec @click="onProjects"/>
+            <h1 class="reset-margin main-headline mobile-center-text mobile-white">Ihr Zuhause in <span class="prim-color">neuen Farben</span></h1>
+            <p class="default-textsize decent-color mobile-white fade-before mobile-center-text" :class="fadeSubHeader ? 'fade-after' : ''">Wir verwandeln Ihre Räume mit hochwertigen Malerarbeiten, modernen Techniken und jahrzehntelanger Erfahrung.</p>
+            <div class="mobile-center-horizontal fade-before mobile-button-column" :class="fadeSubButtons ? 'fade-after' : ''">
+              <div class="center-horizontal">
+                <UIButton title="Kostenlos beraten lassen" @click="onContact"/>
+              </div>
+              <div class="button-space"></div>
+              <div class="center-horizontal">
+                <UIButton title="Unsere Arbeiten ansehen" text-css="mobile-white" sec @click="onProjects"/>
+              </div>
             </div>
           </div>
         </div>
+        <div class="diagonal-line absolute"></div>
       </div>
       <div class="center half-width relative max-height">
         <div class="absolute center max-width max-height">
-          <div class="inner-img max-height center">
-            <img src="../assets/maler-main.jpg" class="max-width fade-before round-corner shadow" :class="fadePizza ? 'fade-after' : ''">
-          </div>
-        </div>
-        <div class="absolute max-width bottom" style="aspect-ratio: 3/2">
-          <div class="rating-card center">
-            <div class="round-icon decent-sec-background center">
-              <Icon size="25" class="sec-color">
-                <Shield24Regular/>
-              </Icon>
-            </div>
-            <div style="width: 10px"></div>
-            <div>
-              <p class="reset-margin bold">25+ Jahre</p>
-              <p class="reset-margin decent-color" style="font-size: 13px">Erfahrung</p>
-            </div>
-          </div>
-        </div>
-        <div class="absolute max-width right" style="aspect-ratio: 3/2">
-          <div class="rating-card center">
-            <div class="round-icon decent-prim-background center">
-              <Icon size="25" class="prim-color">
-                <Star28Regular/>
-              </Icon>
-            </div>
-            <div style="width: 10px"></div>
-            <div>
-              <p class="reset-margin bold">500+</p>
-              <p class="reset-margin decent-color" style="font-size: 13px">Zufriedene Kunden</p>
-            </div>
+          <div class="max-width max-height center">
+            <video autoplay loop muted playsinline class="main-video">
+              <source src="../assets/maler-video.mp4" type="video/mp4">
+            </video>
           </div>
         </div>
       </div>

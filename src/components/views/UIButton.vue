@@ -27,6 +27,14 @@
   background: transparent;
   border: 1px solid #2562e9;
 }
+
+@media (max-width: 1000px) {
+
+  .mobile-white{
+    color: white;
+  }
+
+}
 </style>
 
 <template>
@@ -36,7 +44,7 @@
       <slot></slot>
       <span style="width: 10px"></span>
     </span>
-    <span class="ui-button-text default-font" :class="sec ? 'prim-color' : 'text-color'">{{ title }}</span>
+    <span class="ui-button-text default-font" :class="sec ? 'prim-color ' + textCss : 'text-color' + textCss">{{ title }}</span>
     <span v-if="right" class="center-vertical">
       <span style="width: 10px"></span>
       <slot></slot>
@@ -59,7 +67,8 @@ export default {
   props: {
     title: String,
     right: Boolean,
-    sec: Boolean
+    sec: Boolean,
+    textCss: String
   },
 
   created() {
