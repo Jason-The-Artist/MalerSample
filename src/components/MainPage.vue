@@ -156,11 +156,11 @@
 
 .diagonal-line{
   height: 180%;
-  width: 300px;
+  width: 35vh;
   rotate: 20deg;
   background: #eef4fc;
   z-index: 100;
-  transform: translateX(150px);
+  transform: translateX(17vh);
 }
 
 .header-content-width{
